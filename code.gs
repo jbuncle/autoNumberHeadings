@@ -22,21 +22,21 @@ function numberHeadings(add){
     var element = paragraphs[i];
     var text = element.getText()+'';
     var type = element.getHeading()+'';
-    
+
     // exclude everything but headings
-    if (!type.match(/Heading \d/)) {
+    if (!type.match(/HEADING\d/)) {
       continue;
     }
-    
+
     // exclude empty headings (e.g. page breaks generate these)
     if( text.match(/^\s*$/)){
       continue;
     }
 
     if (add == true) {
-      var level = new RegExp(/Heading (\d)/).exec(type)[1];  
+      var level = new RegExp(/HEADING(\d)/).exec(type)[1];  
       var numbering = '';
-      
+
       numbers[level]++;
       for (var currentLevel = 1; currentLevel <= 6; currentLevel++) {
         if (currentLevel <= level) {
